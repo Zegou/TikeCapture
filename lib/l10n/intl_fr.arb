@@ -1,0 +1,44 @@
+{
+   "@@last_modified": "2018-05-25T11:50:40.743319",
+   "title": "Bonjour application modiale",
+   "@title": {
+     "description": "Votre titre pour application",
+     "type": "text",
+     "placeholders": {}
+   },
+   "hello": "Bonjour",
+   "@hello": {
+     "type": "text",
+     "placeholders": {}
+   },
+  "text_login_text": "Enregistrez-vous maintenant",
+  "@text_login_text": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "button_login_text": "valider",
+  "@button_login_text": {
+    "type": "text",
+    "placeholders": {}
+  } ,
+  "privacy_login_text": "En continuant , vous acceptez nos Termes et Conditions de notre politique de confidentialité.",
+  "@privacy_login_text": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "phonenumber_login_label": "Votre numéro de téléphone",
+  "@phonenumber_login_label": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "privacy_policy_label": "Politique de confidentialité",
+  "@privacy_policy_label": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "privacy_policy_body": "Capture Solutions Cote d´Ivoire attaches great importance to the issue",
+  "@privacy_policy_body": {
+    "type": "text",
+    "placeholders": {}
+  }
+}

@@ -1,0 +1,692 @@
+
+import 'package:flutter/material.dart';
+import 'package:path/path.dart';
+import 'package:tike_consumer/collapsing_profile.dart';
+import 'package:tike_consumer/collapsing_tab.dart';
+import 'package:tike_consumer/tab_screen.dart';
+
+
+
+import 'package:flutter/material.dart';
+
+class EventDetails  extends StatefulWidget {
+  @override
+  _MainCollapsingToolbarState createState() => _MainCollapsingToolbarState();
+}
+
+class _MainCollapsingToolbarState extends State<EventDetails> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: DefaultTabController(
+        length: 2,
+        child: NestedScrollView(
+          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+            return <Widget>[
+              SliverAppBar(
+                expandedHeight: 200.0,
+                foregroundColor: Colors.white10,
+                floating: false,
+                pinned: true,
+                flexibleSpace: FlexibleSpaceBar(
+                    centerTitle: true,
+                    title: Text("EVENT DETAILS",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16.0,
+                        )),
+                    background: new Image.asset(
+                      "assets/images/peopleinfestival.png",
+                      fit: BoxFit.cover,
+                    )),
+              ),
+              SliverPersistentHeader(
+                delegate: _SliverAppBarDelegate(
+                  TabBar(
+                    labelColor: Colors.black87,
+                    unselectedLabelColor: Colors.grey,
+                    tabs: [
+                      Tab(icon: Icon(Icons.info), text: "Tab 1"),
+                      Tab(icon: Icon(Icons.lightbulb_outline), text: "Tab 2"),
+
+                    ],
+                  ),
+                ),
+                pinned: true,
+              ),
+            ];
+          },
+          body:
+
+
+          new TabBarView(
+
+            children: <Widget>[
+
+              new Card(
+
+                 child: InkWell(
+
+        onTap: () {
+            Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => EventDetails()),
+            );
+             },
+            Container
+        )
+              child : Row(
+              children: [
+
+                Column(
+
+
+                  children: [
+
+                    Padding(
+
+                        padding: const EdgeInsets.all(10.0),
+
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Row(
+                              children: [
+                                Column(
+                                    children: [
+
+                                      Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+                                          children: [
+
+                                            Text(
+                                              '#Secondary',
+                                              style: TextStyle(color: Colors.black12.withOpacity(0.6), fontFamily: "MontserratLight"),
+                                              textAlign: TextAlign.left,
+
+                                            ),
+                                            Text("  "),
+                                            Text(
+                                              '#Secondary',
+                                              style: TextStyle(color: Colors.black12.withOpacity(0.6), fontFamily: "MontserratLight"),
+                                              textAlign: TextAlign.left,
+                                            )
+                                          ])
+
+
+                                    ]
+                                )
+
+
+                              ],
+                            ),
+                            SizedBox(
+                              height: 15.0,
+                            ),
+                            Row(
+                              children: [
+                                Column(
+                                    children: [
+
+                                      Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+                                          children: [
+
+                                            Text(
+                                              'Greyhound divisively hello coldly',
+                                              style: TextStyle(color: Colors.black, fontFamily: "MontserratBlack" , fontSize: 20 ),
+                                              textAlign: TextAlign.left,
+
+                                            ),
+
+                                          ])
+
+
+                                    ]
+                                )
+
+
+                              ],
+                            ),
+                            SizedBox(
+                              height: 8.0,
+                            ),
+                            Row(
+                              children: [
+                                Column(
+                                    children: [
+
+                                      Row(
+                                          children: [
+                                            Icon(Icons.access_alarm_outlined, color: Colors.black , size: 30,),
+                                            Text("  "),
+                                            Text(
+                                              'SUN, MAR 25 - 4:30 PM EST',
+                                              style: TextStyle(color: Colors.black12.withOpacity(0.6), fontFamily: "MontserratLight",fontSize: 17),
+                                              textAlign: TextAlign.left,
+                                            )
+                                          ])
+
+
+                                    ]
+                                )
+
+
+                              ],
+                            ),
+                            SizedBox(
+                              height: 8.0,
+                            ),
+                            Row(
+                              children: [
+                                Column(
+                                    children: [
+
+                                      Row(
+                                          children: [
+                                            Icon(Icons.apps_outlined, color: Colors.black12 , size: 30,),
+                                            Text("  "),
+                                            Text(
+                                              '2568/10k attending',
+                                              style: TextStyle(color: Colors.black, fontFamily: "MontserratLight",fontSize: 15),
+                                              textAlign: TextAlign.left,
+                                            )
+                                          ])
+
+
+                                    ]
+                                ),
+
+
+                              ],
+                            ),
+                            SizedBox(
+                              height: 8.0,
+                            ),
+                            Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  /*   Text("                                     "),
+
+                      Text(
+                        '10km',
+                        style: TextStyle(color: Colors.black.withOpacity(0.6), fontFamily: "MontserratRegular"),
+                        textAlign: TextAlign.left,
+
+                      )*/
+
+                                  Container(
+                                    margin: EdgeInsets.all(2),
+                                    width: 40,
+                                    height: 40,
+                                    decoration: new BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      image: new DecorationImage(image: new AssetImage("assets/images/profile-screen-avatar.jpg"), fit: BoxFit.fill,),                ),
+                                  ),
+
+
+
+
+                                  Container(
+                                    margin: EdgeInsets.all(2),
+                                    width: 40,
+                                    height: 40,
+                                    decoration: new BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      image: new DecorationImage(image: new AssetImage("assets/images/smiling.png"), fit: BoxFit.fill,),                ),
+                                  ),
+
+                                  Container(
+                                    margin: EdgeInsets.all(2),
+                                    width: 40,
+                                    height: 40,
+                                    decoration: new BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      image: new DecorationImage(image: new AssetImage("assets/images/smiling.png"), fit: BoxFit.fill,),                ),
+                                  ),
+
+                                  Container(
+                                    margin: EdgeInsets.all(2),
+                                    width: 40,
+                                    height: 40,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      image: DecorationImage(
+                                          image: NetworkImage('https://googleflutter.com/sample_image.jpg'),
+                                          fit: BoxFit.fill
+                                      ),
+
+                                    ),
+                                  ),
+
+                                  Text("                "),
+
+
+
+                                ]),
+                            SizedBox(
+                              height: 20.0,
+                            ),
+
+                          ],
+                        )
+
+                    ),
+                  ],
+                ),
+                Column(
+                    children: [
+                      Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+                      children: [
+
+                        Column(
+                            children: [
+                              Text(
+                                'Greyhound divisively hello coldly',
+                                style: TextStyle(color: Colors.black, fontFamily: "MontserratBlack" , fontSize: 20 ),
+                                textAlign: TextAlign.left,
+
+                              ),
+                            ]),
+                        Column(
+                            children: [
+                              Row(
+                                children: [
+
+                                  Container(
+                                    color: Colors.black12,
+                                    child:  Row(
+
+                                      children: [
+                                        Column(
+                                            children: [
+
+                                              Text(
+                                                '4.5',
+                                                style: TextStyle(color: Colors.black, fontFamily: "MontserratBlack",fontSize: 40),
+                                                textAlign: TextAlign.left,
+                                              )
+
+
+
+                                            ]
+                                        ),
+                                        Column(
+                                            children: [
+
+                                              Row(
+                                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                  children: [
+                                                    Text("               "),
+                                                    Icon(Icons.star, color: Colors.black12),
+                                                    Icon(Icons.star, color: Colors.black12),
+                                                    Icon(Icons.star, color: Colors.black12),
+                                                    Icon(Icons.star, color: Colors.black),
+                                                    Icon(Icons.star, color: Colors.black),
+
+
+                                                    Text(
+                                                        ' '
+                                                    ),
+                                                    Text(
+                                                      '1.3K',
+                                                      style: TextStyle(color: Colors.black.withOpacity(0.6), fontFamily: "MontserratRegular"),
+                                                      textAlign: TextAlign.left,
+
+                                                    )
+                                                  ]),
+                                              SizedBox(
+                                                height: 10.0,
+                                              ),
+                                              Row(
+                                                  children: [
+                                                    Text(
+                                                      '214 reviews',
+                                                      style: TextStyle(color: Colors.black, fontFamily: "MontserratLight",fontSize: 20),
+                                                      textAlign: TextAlign.left,
+                                                    )
+                                                  ]
+                                              )
+
+
+                                            ]
+                                        )
+
+                                      ],
+                                    ),
+                                  )
+                                ],
+
+
+                             )
+                            ],
+                       )
+              ]
+                )
+
+              ]
+          )
+
+
+
+             ],
+          ),
+
+
+
+              new TabScreen("Address"),
+
+            ],
+          ),
+
+
+
+        ),
+      ),
+    );
+  }
+}
+Widget Profile(BuildContext context){
+  return Card(
+    /* clipBehavior: Clip.antiAlias,*/
+    child: InkWell(
+
+/*
+        elevation: 0.0,
+*/
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => EventDetails()),
+        );
+        // Function is executed on tap.
+      },
+      child: Column(
+        children: [
+
+          Padding(
+
+            padding: const EdgeInsets.all(0.0),
+
+            child: ClipRRect(
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10)
+                  ,bottomLeft: Radius.circular(10),
+                  topRight: Radius.circular(10),
+                  bottomRight: Radius.circular(10)),
+              child: Image.asset(
+                'assets/images/peopleinfestival.png',
+                fit: BoxFit.cover,
+              ),
+
+            ),
+
+          ),
+
+          SizedBox(
+            height: 15.0,
+          ),
+          Row(
+            children: [
+              Column(
+                  children: [
+
+                    Row(
+                        children: [
+                          Text(
+                            '#Secondary',
+                            style: TextStyle(color: Colors.black12.withOpacity(0.6), fontFamily: "MontserratLight"),
+                            textAlign: TextAlign.left,
+
+                          ),
+                          Text("  "),
+                          Text(
+                            '#Secondary',
+                            style: TextStyle(color: Colors.black12.withOpacity(0.6), fontFamily: "MontserratLight"),
+                            textAlign: TextAlign.left,
+                          )
+                        ])
+
+
+                  ]
+              ),
+              Column(
+                  children: [
+
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Text("               "),
+                          Icon(Icons.star, color: Colors.black12),
+                          Icon(Icons.star, color: Colors.black12),
+                          Icon(Icons.star, color: Colors.black12),
+                          Icon(Icons.star, color: Colors.black),
+                          Icon(Icons.star, color: Colors.black),
+
+
+                          Text(
+                              ' '
+                          ),
+                          Text(
+                            '1.3K',
+                            style: TextStyle(color: Colors.black.withOpacity(0.6), fontFamily: "MontserratRegular"),
+                            textAlign: TextAlign.left,
+
+                          )
+                        ]),
+
+
+
+                  ]
+              )
+
+
+            ],
+          ),
+
+          Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Padding(
+                  padding: EdgeInsets.fromLTRB(0, 15, 5, 5),
+                  child: Text(
+                    'Greyhound divisively hello coldly coldly.',
+                    style: TextStyle(color: Colors.black, fontFamily: "MontserratBlack" , fontSize: 17),
+                  ),
+                ),
+              ]),
+          SizedBox(
+            height: 8.0,
+          ),
+          Row(
+            children: [
+              Column(
+                  children: [
+
+                    Row(
+                        children: [
+                          Icon(Icons.map, color: Colors.black12 , size: 30,),
+                          Text("  "),
+                          Text(
+                            'Abidjan Cocody Riviera 2',
+                            style: TextStyle(color: Colors.black12.withOpacity(0.6), fontFamily: "MontserratLight"),
+                            textAlign: TextAlign.left,
+                          )
+                        ])
+
+
+                  ]
+              ),
+              Column(
+                  children: [
+
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Text("                                     "),
+
+                          Text(
+                            '10km',
+                            style: TextStyle(color: Colors.black.withOpacity(0.6), fontFamily: "MontserratRegular"),
+                            textAlign: TextAlign.left,
+
+                          )
+                        ]),
+
+
+
+                  ]
+              )
+
+
+            ],
+          ),
+          SizedBox(
+            height: 8.0,
+          ),
+          Row(
+            children: [
+              Column(
+                  children: [
+
+                    Row(
+                        children: [
+                          Icon(Icons.apps_outlined, color: Colors.black12 , size: 30,),
+                          Text("  "),
+                          Text(
+                            '2568/10k attending',
+                            style: TextStyle(color: Colors.black12.withOpacity(0.6), fontFamily: "MontserratLight"),
+                            textAlign: TextAlign.left,
+                          )
+                        ])
+
+
+                  ]
+              ),
+              Column(
+                  children: [
+
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          /*   Text("                                     "),
+
+                      Text(
+                        '10km',
+                        style: TextStyle(color: Colors.black.withOpacity(0.6), fontFamily: "MontserratRegular"),
+                        textAlign: TextAlign.left,
+
+                      )*/
+                          Text("                "),
+                          Container(
+                            margin: EdgeInsets.all(2),
+                            width: 25,
+                            height: 25,
+                            decoration: new BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: new DecorationImage(image: new AssetImage("assets/images/profile-screen-avatar.jpg"), fit: BoxFit.fill,),                ),
+                          ),
+
+
+
+                          Container(
+                            margin: EdgeInsets.all(2),
+                            width: 25,
+                            height: 25,
+                            decoration: new BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: new DecorationImage(image: new AssetImage("assets/images/login_bg2white.png"), fit: BoxFit.fill,),                ),
+                          ),
+
+                          Container(
+                            margin: EdgeInsets.all(2),
+                            width: 25,
+                            height: 25,
+                            decoration: new BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: new DecorationImage(image: new AssetImage("assets/images/smiling.png"), fit: BoxFit.fill,),                ),
+                          ),
+
+                          Container(
+                            margin: EdgeInsets.all(2),
+                            width: 25,
+                            height: 25,
+                            decoration: new BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: new DecorationImage(image: new AssetImage("assets/images/smiling.png"), fit: BoxFit.fill,),                ),
+                          ),
+
+                          Container(
+                            margin: EdgeInsets.all(2),
+                            width: 25,
+                            height: 25,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                  image: NetworkImage('https://googleflutter.com/sample_image.jpg'),
+                                  fit: BoxFit.fill
+                              ),
+
+                            ),
+                          )
+
+
+
+
+                        ]),
+
+
+
+                  ]
+              )
+
+
+            ],
+          ),
+
+
+
+
+
+          /*ListTile(
+              leading: Icon(Icons.arrow_drop_down_circle),
+              title: const Text('Card title 1'),
+              subtitle: Text(
+                'Secondary Text',
+                style: TextStyle(color: Colors.black.withOpacity(0.6)),
+              ),
+            )*/
+        ],
+      ),
+
+    ),
+  );
+}
+class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
+  _SliverAppBarDelegate(this._tabBar);
+
+  final TabBar _tabBar;
+
+  @override
+  double get minExtent => _tabBar.preferredSize.height;
+  @override
+  double get maxExtent => _tabBar.preferredSize.height;
+
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return Container(
+      child: _tabBar,
+    );
+  }
+
+  @override
+  bool shouldRebuild(_SliverAppBarDelegate oldDelegate) {
+    return false;
+  }
+}

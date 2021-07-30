@@ -1,0 +1,44 @@
+{
+   "@@last_modified": "2018-05-25T11:50:40.743319",
+   "title": "App Hola Mundo",
+   "@title": {
+     "description": "The application title",
+     "type": "text",
+     "placeholders": {}
+   },
+   "hello": "Hola",
+   "@hello": {
+     "type": "text",
+     "placeholders": {}
+   },
+  "text_login_text": "Regístrate ahora",
+  "@text_login_text": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "button_login_text": "validar",
+  "@button_login_text": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "privacy_login_text": "",
+  "@privacy_login_text": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "phonenumber_login_label": "Your phone number",
+  "@phonenumber_login_label": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "privacy_policy_label": "",
+  "@privacy_policy_label": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "privacy_policy_body": "",
+  "@privacy_policy_body": {
+    "type": "text",
+    "placeholders": {}
+  }
+}

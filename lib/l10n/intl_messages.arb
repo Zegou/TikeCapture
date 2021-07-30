@@ -1,0 +1,44 @@
+{
+  "@@last_modified": "2018-05-25T13:03:06.297176",
+  "title": "Hello world App",
+  "@title": {
+    "description": "The application title",
+    "type": "text",
+    "placeholders": {}
+  },
+  "hello": "Hello",
+  "@hello": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "text_login_text": "Register now",
+  "@text_login_text": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "button_login_text": "validate",
+  "@button_login_text": {
+    "type": "text",
+    "placeholders": {}
+  } ,
+  "privacy_login_text": "By continuing you agree to our Terms and Conditions of our privacy policy.",
+  "@privacy_login_text": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "phonenumber_login_label": "Votre numéro de téléphone",
+  "@phonenumber_login_label": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "privacy_policy_label": "Privacy Policy",
+  "@privacy_policy_label": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "privacy_policy_body": "Capture Solutions Cote d´Ivoire attaches great importance to the issue of the management",
+  "@privacy_policy_body": {
+    "type": "text",
+    "placeholders": {}
+  }
+}

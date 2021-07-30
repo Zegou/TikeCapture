@@ -1,0 +1,43 @@
+Future : 
+- The name  and the number of the login page
+Validate - Resend (Change button style when prompting resend ) 
+
+- Customer Profile Screen 
+features : 01 . My Tickets | 02. Payment Optiuons | 03. My Details | 04. Settings
+
+Features : 
+a: Hamberger Menu
+
+-  My Tickets Screen 
+A screen where customers can view their part , present , and future tickets.
+
+- Ticket Screen:
+Features : refund ticket | Buy Extra
+
+- Payment Options screen 
+A screen where customers can view their past and present card details .
+Features ;  Card Payments ; Visa | MasterCard | Mobile Money : Moov | Momopay | Orange
+| Mpesa
+
+- My Details Screen 
+Ascreen A screen customers can edit or view  their login , contact , and address .
+Features : Password Reset | Profile Image | Name | Address | Contact Number | Email
+
+- Setting Screen 
+A screen where customers can edit their app setting like location services etc..
+
+features: Location Limitation | Push Notifications | delete Account 
+
+- Change Password Screen 
+A screen where customers can edit their or reset their passwords
+
+Features 
+
+- Browse Activities Screen 
+A screen where customer can search , filter , and/or select an activity:Event or Transport.
+Features ; Event |
+
+
+
+
+

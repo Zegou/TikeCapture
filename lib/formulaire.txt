@@ -1,0 +1,851 @@
+ 
+    <div ui-view class="app-body" id="view">
+        <div class="row padding">
+
+
+            <div class=" col-sm-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h5>Liste des Dossiers transmis par le Service Achat</h5>
+
+                    </div>
+                    <div class="box-body">
+                        Recherche: <input id="filter" type="text" class="form-control input-sm w-auto inline m-r"/>
+
+                        <div class="float-sm-right"><button  class="btn btn-default btn-xs btn-detail" data-toggle="modal" onclick="" data-target="#new_paiementautorisation_form"><i class="fa fa-plus-circle"></i> N Autorisation paiement</button></div>
+                    </div>
+                    <div>
+                        
+{{--
+                        <div id="new_paiementautorisation_form" class="modal" data-backdrop="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title"> Formulaire de demande d'autorisation de dépenses </h5>
+                                    </div>
+                                    <form method="post" id="new_paiementautorisation_form_id"  enctype="multipart/form-data" action="{{url('treasury')}}">
+                                        {{ csrf_field() }}
+
+                                        <div class="container">
+                                        <div class="row padding">
+
+                                            <div class="box col-sm-8">
+
+                                             <fieldset>
+                                                 <legend>Entête</legend>
+
+                                                 <div class="row">
+
+                                                     <div class="col-md-6 text-left">
+                                                         <strong>Bon de commande</strong>
+                                                     </div>
+
+                                                     <div class="col-md-6">
+                                                         <strong>PRESIDENT DU COMITE BUDGETAIRE</strong>
+
+                                                     </div>
+
+
+                                                 </div>
+                                                 <div class="row">
+                                                     <p style="height: 20px"></p>
+                                                     <div class="col-md-6 text-left">
+                                                         <strong>DE LA PART DE </strong>
+                                                     </div>
+
+                                                     <div class="col-md-6">
+                                                         <strong>COMITE BUDGETAIRE</strong>
+
+                                                     </div>
+
+
+                                                 </div>
+
+                                                 <div class="row">
+                                                     <p style="height: 20px"></p>
+                                                     <div class="col-md-6 text-left">
+                                                         <strong>SUJET</strong>
+                                                     </div>
+
+                                                     <div class="col-md-6">
+                                                         <strong>DEMANDE D'AUTORISATION DE DEPENSE</strong>
+
+                                                     </div>
+
+
+                                                 </div>
+                                             </fieldset>
+
+                                                <div class="form-group row">
+                                                    <label for="inputPassword3" class="col-sm-2 form-control-label">Service</label>
+                                                    <div class="col-sm-10">
+                                                        <select name="service_id" id="service_id" class="form-control select2" required>
+                                                            <option value="" required>Selectionner du service demandeur</option>
+
+                                                            @forelse($Service as $key=>$Services)
+                                                                <option value="{{$Services->id}}">{{strtoupper($Services->name)}}</option>
+                                                            @empty
+                                                            @endforelse
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group row">
+                                                    <label for="inputPassword3" class="col-sm-2 form-control-label">Type de depense</label>
+                                                    <div class="col-sm-10">
+                                                        <select name="typeofexpense_id" id="typeofexpense_id" class="form-control select2" required>
+                                                            <option value="" required>Selectionner le Type de depense</option>
+
+                                                            @forelse($TypeOfExpense as $key=>$TypeOfExpenses)
+                                                                <option value="{{$TypeOfExpenses->id}}">{{strtoupper($TypeOfExpenses->name)}}</option>
+                                                            @empty
+                                                            @endforelse
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                     <div class="form-group row">
+                                                        <label class="col-sm-2 form-control-label">OBJET DE LA DEPENSE</label>
+                                                        <div class="col-sm-10">
+
+                                                                <input type="text" name="purposeofexpenditure" id="purposeofexpenditure" class="form-control">
+
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row" id="spacebonexecutiontravaux">
+                                                        <label class="col-sm-4 form-control-label">OPPORTUNITE DE LA DEPENSE</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" required="required" name="opportunityoftheexpenditure" id="opportunityoftheexpenditure" class="form-control" required>
+
+                                                        </div>
+                                                    </div>
+
+                                                <div class="form-group row" id="spacebonexecutiontravaux">
+                                                    <label class="col-sm-4 form-control-label">CONSOMMATION DU BUDGET </label>
+                                                    <div class="col-sm-8">
+                                                        <input type="file" name="budgetconsumption" id="budgetconsumption" required="required" class="form-control">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="box col-sm-4">
+
+                                                <div class="form-group row">
+                                                    <label for="inputPassword3" class="col-sm-2 form-control-label">Projet</label>
+                                                    <div class="col-sm-10">
+                                                        <select name="project_id" id="project_id" class="form-control select2" required>
+                                                            <option value="">Selectionner le Projet</option>
+
+                                                            @forelse($Project as $key=>$Projects)
+                                                                <option value="{{$Projects->id}}">{{strtoupper($Projects->name)}}</option>
+                                                            @empty
+                                                            @endforelse
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="inputPassword3" class="col-sm-2 form-control-label">Budget</label>
+                                                    <div class="col-sm-10">
+                                                        <select name="project_id" id="project_id" class="form-control select2" required>
+                                                            <option value="">Selectionner le Budget</option>
+
+                                                            @forelse($Budget as $key=>$Budgets)
+                                                                <option value="{{$Budgets->id}}">{{strtoupper($Budgets->name)}}</option>
+                                                            @empty
+                                                            @endforelse
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group row">
+                                                    <label for="inputPassword3" class="col-sm-2 form-control-label">Site</label>
+                                                    <div class="col-sm-10">
+                                                        <select name="site_id" id="project_id" class="form-control select2" required>
+                                                            <option value="">Selectionner le Site</option>
+
+                                                            @forelse($Site as $key=>$Sites)
+                                                                <option value="{{$Sites->id}}">{{strtoupper($Sites->name)}}</option>
+                                                            @empty
+                                                            @endforelse
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                --}}
+{{--<div class="form-group row">
+                                                    <label class="col-sm-3 form-control-label">Numéro</label>
+                                                    <div class="col-sm-9">
+
+                                                        <input type="text" name="number_project" id="number_project" class="form-control">
+
+
+                                                    </div>
+                                                </div>--}}{{--
+
+                                            </div>
+                                            <div class="modal-footer">
+
+                                                <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">Fermer</button>
+
+                                                <button type="submit" id="valbutton" class="btn danger p-x-md">Valider</button>
+                                            </div>
+                                         </div>
+
+
+                                        </div>
+                                    </form>
+
+
+                                </div><!-- /.modal-content -->
+                            </div>
+                        </div>
+--}}
+
+
+                        <div class="container my-4">
+
+
+
+                            <!-- Modal -->
+                            <div class="modal fade right" id="new_paiementautorisation_form" tabindex="-1" role="dialog" aria-labelledby="exampleModalPreviewLabel" aria-hidden="true">
+                                <div class="modal-dialog-full-width modal-dialog momodel modal-fluid" role="document">
+                                    <div class="modal-content-full-width modal-content ">
+                                        <form method="post" id="new_paiementautorisation_form_id"  enctype="multipart/form-data" action="{{url('treasury')}}">
+
+                                        <div class=" modal-header-full-width   modal-header text-center">
+                                            <h5 class="modal-title w-100" id="exampleModalPreviewLabel">Formulaire de demande de validation de l'autorisation de paiement</h5>
+                                            <button type="button" class="close " data-dismiss="modal" aria-label="Close">
+                                                <span style="font-size: 1.3em;" aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                                {{ csrf_field() }}
+
+                                                <div class="container">
+                                                    <div class="row padding">
+
+                                                        <div class="box col-sm-8">
+
+                                                            <fieldset>
+                                                                <legend>Entête</legend>
+
+                                                                <div class="row">
+
+                                                                    <div class="col-md-6 text-left">
+                                                                        <strong>DESTINATAIRE :</strong>
+                                                                        <br/>
+                                                                    </div>
+
+                                                                    <div class="col-md-6">
+                                                                        <strong>PRESIDENT DU COMITE BUDGETAIRE</strong>
+                                                                        <br/>
+                                                                    </div>
+
+
+                                                                </div>
+                                                                <div class="row">
+                                                                    <p style="height: 20px"></p>
+                                                                    <div class="col-md-6 text-left">
+                                                                        <strong>DE LA PART DE: </strong>
+                                                                        <br/>
+                                                                    </div>
+
+                                                                    <div class="col-md-6">
+                                                                        <strong>COMITE BUDGETAIRE</strong>
+                                                                        <br/>
+                                                                    </div>
+
+
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <p style="height: 20px"></p>
+                                                                    <div class="col-md-6 text-left">
+                                                                        <strong>SUJET</strong>
+                                                                    </div>
+
+                                                                    <div class="col-md-6">
+                                                                        <strong>DEMANDE D'AUTORISATION DE DEPENSE DE [ENTITE OU DE LA DIRECTION SUPPORT]</strong>
+
+                                                                    </div>
+
+
+                                                                </div>
+                                                            </fieldset>
+
+                                                            <div class="form-group row">
+                                                                <label for="inputPassword3" class="col-sm-2 form-control-label">Service</label>
+                                                                <div class="col-sm-10">
+                                                                    <select name="service_id" id="service_id" class="form-control select2" required>
+                                                                        <option value="" required>Selectionner du service demandeur</option>
+
+                                                                        @forelse($Service as $key=>$Services)
+                                                                            <option value="{{$Services->id}}">{{strtoupper($Services->name)}}</option>
+                                                                        @empty
+                                                                        @endforelse
+
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="form-group row">
+                                                                <label for="inputPassword3" class="col-sm-2 form-control-label">Type de depense</label>
+                                                                <div class="col-sm-10">
+                                                                    <select name="typeofexpense_id" id="typeofexpense_id" class="form-control select2" required>
+                                                                        <option value="" required>Selectionner le Type de depense</option>
+
+                                                                        @forelse($TypeOfExpense as $key=>$TypeOfExpenses)
+                                                                            <option value="{{$TypeOfExpenses->id}}">{{strtoupper($TypeOfExpenses->name)}}</option>
+                                                                        @empty
+                                                                        @endforelse
+
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2 form-control-label">OBJET DE LA DEPENSE</label>
+                                                                <div class="col-sm-10">
+
+                                                                    <input type="text" name="purposeofexpenditure" id="purposeofexpenditure" class="form-control">
+
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group row" id="spacebonexecutiontravaux">
+                                                                <label class="col-sm-4 form-control-label">OPPORTUNITE DE LA DEPENSE</label>
+                                                                <div class="col-sm-8">
+                                                                    <textarea  required="required" name="opportunityoftheexpenditure" id="opportunityoftheexpenditure" class="form-control"></textarea>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group row" id="spacebonexecutiontravaux">
+                                                                <label class="col-sm-4 form-control-label">RESERVE DU COMITE</label>
+                                                                <div class="col-sm-8">
+                                                                    <textarea  required="required" name="committee_reserve" id="committee_reserve" class="form-control"></textarea>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group row" id="spacebonexecutiontravaux">
+                                                                <label class="col-sm-4 form-control-label">CONSOMMATION DU BUDGET </label>
+                                                                <div class="col-sm-8">
+                                                                    <input type="file" name="budgetconsumption" id="budgetconsumption" required="required" class="form-control">
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="box col-sm-4">
+
+                                                            <div class="form-group row">
+                                                                <label for="inputPassword3" class="col-sm-2 form-control-label">Projet</label>
+                                                                <div class="col-sm-10">
+                                                                    <select name="project_id" id="project_id" class="form-control select2" required>
+                                                                        <option value="">Selectionner le Projet</option>
+
+                                                                        @forelse($Project as $key=>$Projects)
+                                                                            <option value="{{$Projects->id}}">{{strtoupper($Projects->name)}}</option>
+                                                                        @empty
+                                                                        @endforelse
+
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group row" id="budget">
+                                                                <label for="inputPassword3" class="col-sm-2 form-control-label">Budget</label>
+                                                                <div class="col-sm-10">
+                                                                    <select name="budget_id" id="project_id" class="form-control select2" onchange="addnew(this)" required>
+                                                                        <option value="">Selectionner le Budget</option>
+
+                                                                        @forelse($Budget as $key=>$Budgets)
+                                                                            <option value="{{$Budgets->id}}">{{strtoupper($Budgets->name)}}</option>
+                                                                        @empty
+                                                                        @endforelse
+                                                                        <option value="addnew">Ajouter nouveau</option>
+
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="form-group row">
+                                                                <label for="inputPassword3" class="col-sm-2 form-control-label">Site</label>
+                                                                <div class="col-sm-10">
+                                                                    <select name="site_id" id="project_id" class="form-control select2" required>
+                                                                        <option value="">Selectionner le Site</option>
+
+                                                                        @forelse($Site as $key=>$Sites)
+                                                                            <option value="{{$Sites->id}}">{{strtoupper($Sites->name)}}</option>
+                                                                        @empty
+                                                                        @endforelse
+
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            {{--<div class="form-group row">
+                                                                <label class="col-sm-3 form-control-label">Numéro</label>
+                                                                <div class="col-sm-9">
+
+                                                                    <input type="text" name="number_project" id="number_project" class="form-control">
+
+
+                                                                </div>
+                                                            </div>--}}
+                                                        </div>
+                                                   {{--     <div class="modal-footer">
+
+                                                            <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">Fermer</button>
+
+                                                            <button type="submit" id="valbutton" class="btn danger p-x-md">Valider</button>
+                                                        </div--}}
+                                                    </div>
+
+
+
+                                                </div>
+
+
+
+
+
+
+                                                            <table width="100%">
+                                                                <thead style="background-color: #44546a; color: white">
+                                                                <tr>
+                                                                    <th width="12%"><strong id="headertable">Désignation</strong></th>
+                                                                    <th width="9%"><strong id="headertable">Budget de dépenses FCFA</strong></th>
+                                                                    <th width="9%"><strong id="headertable">Budget consommé avant la requête</strong></th>
+                                                                    <th width="9%"><strong id="headertable">Budget consommé avant la requête %</strong></th>
+                                                                    <th width="2%"></th>
+
+                                                                    <th width="9%"><strong id="headertable">Facture à régler en FCFA</strong></th>
+                                                                    <th width="9%"><strong id="headertable">Réglé sur facture en FCFA</strong></th>
+                                                                    <th width="9%"><strong id="headertable">Requête du jour (Acompte) FCFA</strong></th>
+                                                                    <th width="9%"><strong id="headertable">Budget consommé après la requête%</strong></th>
+                                                                    <th width="9%"><strong id="headertable">Retenue 2% sur Requête du jour</strong></th>
+                                                                    <th width="9%"><strong id="headertable">Montant à payer sur requête du jour</strong></th>
+                                                                    <th width="9%"><strong id="headertable">Reste à devoir sur facture F.CFA</strong></th>
+
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td style="text-align: center">
+                                                                         <textarea type="text" name="designation" id="designation" style="width: 130px" >
+                                                           </textarea>
+                                                                    </td>
+                                                                    <td style="text-align: center">
+                                                                        <input type="number"  min="0"  name="expenditurebudget" ng-model="ngmodel" STYLE=" width: 100px; text-align: center" id="expenditurebudget" style="text-align: center"  value="0" onblur="budgetconsumedpercentage();">
+                                                                    </td>
+                                                                    <td style="text-align: center">
+                                                                        <input type="number" min="0" name="budgetconsumed" id="budgetconsumed" style="width: 100px;text-align: center"    value="0" onblur="budgetconsumedpercentage();">
+
+                                                                    </td>
+                                                                    <td style="text-align: center" id=""><span id="expenditurebudgetpercentage"></span></td>
+                                                                    <td style="text-align: center" colspan="8">
+                                                                        <table id="myTable">
+
+                                                                            <tr>
+                                                                                <td> <i class="fa fa-plus" onclick="addField();"></i>  </td>
+
+                                                                                <td>   <input type="number"  name="invoicetopay0" id="invoicetopay0" style="width: 110px;text-align: center" value="0" onblur="cacul();"></td>
+                                                                                <td><input type="number" name="paidoninvoice" style="width: 110px;text-align: center" value="0"></td>
+                                                                                <td><input type="number" name="requestoftheday" style="width: 110px;text-align: center" value="0"></td>
+                                                                                <td><input type="number" name="budgetconsumedafterrequest" style="width: 110px;text-align: center" value="0"></td>
+
+                                                                                <td><input type="number" name="links" style="width: 110px;text-align: center" value="0"></td>
+
+                                                                                <td><input type="number" name="links" style="width: 110px;text-align: center" value="0"></td>
+
+                                                                                <td><input type="number" name="links" style="width: 110px;text-align: center" value="0"></td>
+
+                                                                            </tr>
+                                                                        </table>
+                                                                    </td>
+
+
+                                                                </tr>
+
+                                                                </tbody>
+
+                                                                <tfoot style="background-color: #8c8c8c; color: white; text-align: center">
+                                                                <tr>
+                                                                    <th id="headertable" ><strong >Total</strong></th>
+                                                                    <th id="headertable" style="text-align: center"><input type="number" name="invoicetopayTotal" id="invoicetopayTotal" style="width: 110px;text-align: center" value="[[ngmodel]]" readonly></th>
+                                                                    <th id="headertable" style="text-align: center"><input type="number" min="0" name="budgetconsumedTotal" id="budgetconsumedTotal" style="width: 100px;text-align: center" readonly></th>
+                                                                    <th id="headertable" style="text-align: center"><table>
+                                                                            <td>
+                                                                                <input type="number" min="0" name="expenditurebudgetpercentageTotal" id="expenditurebudgetpercentageTotal" style="width: 90px;text-align: center" readonly>
+                                                                            </td>
+                                                                            <td>
+                                                                                <span class="float-right">%</span>
+                                                                            </td>
+                                                                        </table>
+                                                                    </th>
+                                                                    <th id="headertable" style="text-align: center">
+                                                                        <input type="number" min="0" name="invoicetopayTotal" id="invoicetopayTotal" style="width: 90px;text-align: center" readonly>
+                                                                        </th>
+
+                                                                    <th id="headertable" style="text-align: center"><strong>0</strong></th>
+                                                                    <th id="headertable" style="text-align: center"><strong  style="text-align: center">0</strong></th>
+                                                                    <th style="text-align: center"><strong id="headertable">0</strong></th>
+                                                                    <th style="text-align: center" ><strong id="headertable">0</strong></th>
+                                                                    <th style="text-align: center"><strong id="headertable">0</strong></th>
+                                                                    <th style="text-align: center"><strong id="headertable">0</strong></th>
+                                                                    <th style="text-align: center"><strong id="headertable">0</strong></th>
+
+                                                                </tr>
+                                                                </tfoot>
+                                                            </table>
+
+
+
+
+                                        </div>
+                                        <div class="modal-footer-full-width  modal-footer">
+                                            <button type="button" class="btn btn-danger btn-md btn-rounded" data-dismiss="modal">Close</button>
+                                            <button type="submit" id="valbutton" class="btn danger p-x-md">Valider</button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+
+
+                        <div id="sendbackpurchaseserviceform" class="modal" data-backdrop="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title"> Ecrire la raison du renvoi du document vers le service Achat</h5>
+                                    </div>
+                                    <form method="post" id="sendbackpurchaseserviceform_id"  enctype="multipart/form-data" action="{{url('accountingservice/accountingservicesendback')}}">
+                                        {{ csrf_field() }}
+
+
+
+                                        <div class="modal-body text-center p-lg" id="sendbackpurchaseservice">
+
+                                        </div>
+
+                                    </form>
+
+
+                                </div><!-- /.modal-content -->
+                            </div>
+                        </div>
+
+                        <div id="detailsaccountserviceforms" class="modal" data-backdrop="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title"> Détails des documents reçus/envoyés </h5>
+                                    </div>
+
+
+                                    <div class="modal-body text-center p-lg" id="detailsaccountserviceform">
+
+                                    </div>
+
+
+                                </div><!-- /.modal-content -->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+@section('scripts')
+    <script>
+    function  changestatus(obj){
+    var id = $(obj).attr('id');
+        $.ajax({
+        url:"{{url('account_service/accountservicechangestatus/')}}/"+id,
+        type: "GET",
+            dataType: 'json',
+                success: function(data) {
+                if(data.messages ==="ok"){
+                notification = alertify.notify('Merci d\'avoir consulter le document ', 'success', 7, function () {
+                location.reload();
+                });
+            }
+
+        },
+                error: function (jqXHR, textStatus, errorThrown) {
+                alert("Probl&egrave;me lors de l'envoi veuillez Contacter l'adminstrateur");
+
+                }
+        })
+    }
+    function  detailsaccountserviceform(obj){
+        var id = $(obj).attr('id');
+
+        $.ajax({
+            url:"{{url('account_service/detailsaccountserviceform/')}}/"+id,
+            type: "GET",
+            dataType: 'html',
+            success: function(data) {
+                $("div#detailsaccountserviceform").html(data);
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("Probl&egrave;me lors de l'envoi veuillez Contacter l'adminstrateur");
+
+            }
+        })
+    }
+    function sendbackpurchaseservice(obj) {
+
+        var id = $(obj).attr('id');
+
+
+        $.ajax({
+            url:"{{url('accountingservice/accountingservicesendbackform/')}}/"+id,
+            type: "GET",
+            dataType: 'html',
+            success: function(data) {
+                $("div#sendbackpurchaseservice").html(data);
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("Probl&egrave;me lors de l'envoi veuillez Contacter l'adminstrateur");
+
+            }
+        })
+
+
+    }
+    // Envoyer les documents au service Achat
+    $("form#sendbackpurchaseserviceform_id").on("submit", function (event) {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        event.preventDefault();
+        $.ajax({
+            url:"{{url('accountingservice/accountingservicesendback')}}",
+            method:"POST",
+            data:new FormData(this),
+            contentType: false,
+            cache: false,
+            processData: false,
+
+            success: function (data) {
+                if (data.messages === "ok") {
+
+                    notification = alertify.notify('Votre document A été bien renvoyé au service Achat', 'success', 7, function () {
+                        setTimeout(function(){   window.location.reload(); }, 4000);
+
+
+                    });
+                } else if (data.messages === "erreur") {
+
+                    notification = alertify.notify("Ce dossier n'existe  pas au service achat", "error", 7, function () {
+
+                    });
+                }
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("Probl&egrave;me lors de l'envoi veuillez Contacter l'adminstrateur");
+            }
+        })
+
+
+
+    });
+    function addnew(obj) {
+        var id  = $(obj).val();
+        if(id==="addnew"){
+            $.ajax({
+                url:"{{url('add_budget')}}",
+                type: "GET",
+                dataType: 'html',
+                success: function(data) {
+                    $("#budget").html(data);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert("Probl&egrave;me lors de l'envoi veuillez Contacter l'adminstrateur");
+
+                }
+            });
+            return false
+
+        }else{
+
+        }
+
+
+
+    }
+
+    // Premier cacul
+ function budgetconsumedpercentage() {
+     // Budget de dépenses FCFA
+     var expenditurebudget = $("input#expenditurebudget").val();
+
+    // Budget consommé avant la requête
+     var budgetconsumed = $("#budgetconsumed").val();
+
+
+     // Budget de dépenses FCFA
+     percentages = parseFloat(parseInt(budgetconsumed * 100)/parseInt(expenditurebudget)).toFixed(0);
+
+     if(budgetconsumed>expenditurebudget){
+ 
+     }else{
+         if(isNaN(percentages)){
+             // Total
+             $("#invoicetopayTotal").val(expenditurebudget);
+             $('#budgetconsumedTotal').val(budgetconsumed);
+
+         }else{
+             $("#expenditurebudgetpercentage").html(percentages+"%");
+
+
+             // Toatl
+
+             $("#expenditurebudgetpercentageTotal").val(percentages);
+
+             $("#invoicetopayTotal").val(expenditurebudget);
+             $('#budgetconsumedTotal').val(budgetconsumed);
+
+         }
+
+     }
+ };
+
+    function addField (argument) {
+
+
+        var myTable = document.getElementById("myTable");
+        var currentIndex = myTable.rows.length;
+        var currentRow = myTable.insertRow(-1);
+
+        var invoicetopayBox = document.createElement("input");
+        invoicetopayBox.setAttribute("name", "invoicetopay" + currentIndex);
+        invoicetopayBox.setAttribute("id", "invoicetopay" + currentIndex);
+        invoicetopayBox.setAttribute("value", "0");
+        invoicetopayBox.setAttribute("onblur", "cacul();");
+
+
+
+        invoicetopayBox.setAttribute("type", "number");
+        invoicetopayBox.setAttribute("style", "width:110px");
+
+        var paidoninvoiceBox = document.createElement("input");
+        paidoninvoiceBox.setAttribute("name", "paidoninvoice" + currentIndex);
+        paidoninvoiceBox.setAttribute("type", "number");
+        paidoninvoiceBox.setAttribute("style", "width:110px");
+
+
+        var requestofthedayBox = document.createElement("input");
+        requestofthedayBox.setAttribute("name", "requestoftheday" + currentIndex);
+        requestofthedayBox.setAttribute("type", "number");
+        requestofthedayBox.setAttribute("style", "width:110px");
+
+        var budgetconsumedafterrequestBox = document.createElement("input");
+        budgetconsumedafterrequestBox.setAttribute("name", "budgetconsumedafterrequest" + currentIndex);
+        budgetconsumedafterrequestBox.setAttribute("style", "width:110px");
+
+        var detentiontwopercentBox = document.createElement("input");
+        detentiontwopercentBox.setAttribute("name", "detentiontwopercent" + currentIndex);
+        detentiontwopercentBox.setAttribute("type", "checkbox");
+
+        var detentiontwopercentBoxValue = document.createElement("input");
+        detentiontwopercentBoxValue.setAttribute("name", "budgetconsumedafterrequestBoxValue" + currentIndex);
+        detentiontwopercentBoxValue.setAttribute("style", "width:110px");
+
+        var amounttobepaidondailyrequestBox = document.createElement("input");
+        amounttobepaidondailyrequestBox.setAttribute("name", "amounttobepaidondailyrequest" + currentIndex);
+        amounttobepaidondailyrequestBox.setAttribute("style", "width:110px");
+
+
+        var remainsdueoninvoiceBox = document.createElement("input");
+        remainsdueoninvoiceBox.setAttribute("name", "remainsdueoninvoice" + currentIndex);
+        remainsdueoninvoiceBox.setAttribute("style", "width:110px");
+
+
+
+       var addRowBox = document.createElement("i");
+            addRowBox.setAttribute("onclick", "addField();");
+            addRowBox.setAttribute("class", "fa fa-plus");
+
+
+
+        var  currentCell = currentRow.insertCell(-1);
+        currentCell.appendChild(addRowBox);
+
+
+
+        currentCell = currentRow.insertCell(-1);
+        currentCell.appendChild(invoicetopayBox);
+
+        currentCell = currentRow.insertCell(-1);
+        currentCell.appendChild(paidoninvoiceBox);
+
+        currentCell = currentRow.insertCell(-1);
+        currentCell.appendChild(requestofthedayBox);
+
+
+
+        currentCell = currentRow.insertCell(-1);
+        currentCell.appendChild(budgetconsumedafterrequestBox);
+
+        currentCell = currentRow.insertCell(-1);
+        currentCell.appendChild(detentiontwopercentBox);
+
+        currentCell = currentRow.insertCell(-1);
+        currentCell.appendChild(amounttobepaidondailyrequestBox);
+
+        currentCell = currentRow.insertCell(-1);
+        currentCell.appendChild(remainsdueoninvoiceBox);
+        /*currentCell = currentRow.insertCell(-1);
+        currentCell.appendChild(addRowBox);*/
+
+
+
+    }
+    function cacul() {
+
+        var myTable = document.getElementById("myTable");
+        var currentIndex = myTable.rows.length;
+        TotalTotal = 0 ;
+        $i=0;
+        while($i<currentIndex){
+
+            var Total = parseInt($("#invoicetopay"+$i).val());
+            TotalTotal = TotalTotal +Total ;
+            $i++;
+
+
+        }
+alert(TotalTotal);
+    }
+    </script>
+
+@endsection
+@endsection
+
+
